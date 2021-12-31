@@ -4,6 +4,7 @@ timedatectl set-ntp true
 hwclock --systohc
 pacman -Syyy python reflector
 reflector --verbose --latest 5 --age 6 --protocol https --download-timeout 5 --sort rate --save /etc/pacman.d/mirrorlist
+sed -i "s/^#ParallelDownloads = 5$/ParallelDownloads = 5/" /etc/pacman.conf
 echo "Enter ROOT drive: "
 read rootpart
 mount $rootpart /mnt
