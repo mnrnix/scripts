@@ -21,6 +21,7 @@ pacstrap -i /mnt base base-devel linux linux-firmware linux-headers intel-ucode 
 genfstab -U -p /mnt >> /mnt/etc/fstab
 sed '1,/^#part2$/d' arch_install.sh >> /mnt/arch_install2.sh
 chmod +x /mnt/arch_install2.sh
+arch-chroot /mnt ./arch_install2.sh
 exit
 
 #part2
