@@ -54,7 +54,7 @@ pacman -Syyy --noconfirm pipewire pipewire-pulse pipewire-alsa pipewire-jack pav
 	sxiv mpv ffmpeg imagemagick ueberzug fzf man-db xclip xsel maim scrot zip unzip unrar p7zip \
 	xdotool firefox lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings grub-customizer
 
-systemctl enable NetworkManager
+systemctl enable NetworkManager lightdm
 echo "%wheel ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
 echo "Enter Regular Username: "
 read username
