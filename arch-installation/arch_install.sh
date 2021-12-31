@@ -44,7 +44,9 @@ echo "127.0.1.1		$hostname.localdomain $hostname" >> /etc/hosts
 mkinitcpio -P
 passwd
 pacman -Syyy --noconfirm grub sudo dialog yad dosfstools mtools ntfs-3g os-prober networkmanager network-manager-applet
-grub-install --target=i386-pc /dev/sda
+echo "Enter Grub Install Disk: "
+read diskgrub
+grub-install --target=i386-pc $diskgrub
 grub-mkconfig -o /boot/grub/grub.cfg
 
 pacman -Syyy --noconfirm pipewire pipewire-pulse pipewire-alsa pipewire-jack pavucontrol \
@@ -54,7 +56,7 @@ pacman -Syyy --noconfirm pipewire pipewire-pulse pipewire-alsa pipewire-jack pav
 
 systemctl enable NetworkManager
 echo "%wheel ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
-echo "Username: "
+echo "Enter Regular Username: "
 read username
 useradd -mG wheel -s /bin/bash $username
 passwd $username
